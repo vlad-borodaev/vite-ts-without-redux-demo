@@ -5,12 +5,9 @@ import { Loader } from "../../components/atoms";
 
 export const HttpCodeDetails: FC<PropsWithChildren> = (props) => {
     const { children } = props;
-
     const { code } = useParams();
 
     const { data, loading, error } = useHttpCat(code);
-
-    console.log("data", data);
 
     if (loading) {
         return (
@@ -20,6 +17,7 @@ export const HttpCodeDetails: FC<PropsWithChildren> = (props) => {
 
     return (
         <>
+            <img src={data} />
             { children }
         </>
     );

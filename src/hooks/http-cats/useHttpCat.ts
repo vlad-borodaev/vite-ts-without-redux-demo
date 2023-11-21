@@ -2,9 +2,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { HttpCodeService } from "../../services";
 
 export const useHttpCat = (httpCode?: string) => {
-    const [chosenHttpCode, setChosenHttpCode] = useState<Blob | undefined>();
     const [error, setError] = useState<string>('');
     const [loading, setIsLoading] = useState<boolean>(false);
+
+    const [imageSourceUrl, setImageSourceUrl] = useState<string>("");
 
     const httpServiceRef = useRef<HttpCodeService>(new HttpCodeService());
 
@@ -25,8 +26,8 @@ export const useHttpCat = (httpCode?: string) => {
                     throw new Error("Invalid HTTP code");
                 }
 
-                const data = await apiService.getHttpCatMeme(httpCode);
-                setChosenHttpCode(data);
+                const blobImg = await apiService.getHttpCatMeme(httpCode);
+                setImageSourceUrl(URL.createObjectURL(blobImg));
 
                 // @FIXME: to simulate a delay when requesting data
                 setTimeout(() => {
@@ -42,9 +43,9 @@ export const useHttpCat = (httpCode?: string) => {
 
     return useMemo(() => {
         return {
-            data: chosenHttpCode,
+            data: imageSourceUrl,
             error,
             loading,
         };
-    }, [Boolean(chosenHttpCode), error, loading]);
+    }, [Boolean(imageSourceUrl), error, loading]);
 };

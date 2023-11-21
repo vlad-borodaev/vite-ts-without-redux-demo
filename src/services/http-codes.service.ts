@@ -5,7 +5,9 @@ export class HttpCodeService {
     private apiUrl: string;
 
     constructor() {
-        this.apiUrl = import.meta.env.VITE_API_URL;
+        this.apiUrl = import.meta.env.DEV
+            ? "/api"
+            : import.meta.env.VITE_API_URL;
     }
 
     getHttpCodesList(): Promise<Array<HttpCodeListItem>> {
