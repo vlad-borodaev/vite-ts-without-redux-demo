@@ -1,10 +1,10 @@
-.loader-dual-ring {
+.loaderDualRing {
     display: inline-block;
     width: 80px;
     height: 80px;
 }
 
-.loader-dual-ring:after {
+.loaderDualRing:after {
     content: " ";
     display: block;
     width: 64px;

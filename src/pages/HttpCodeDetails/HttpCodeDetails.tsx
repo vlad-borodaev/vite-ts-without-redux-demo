@@ -1,24 +1,27 @@
-import type { FC, PropsWithChildren } from "react";
+import type { FC } from "react";
 import { useHttpCat } from "../../hooks";
 import { useParams } from "react-router-dom";
 import { Loader } from "../../components/atoms";
+import { Container } from "../../components/templates";
 
-export const HttpCodeDetails: FC<PropsWithChildren> = (props) => {
-    const { children } = props;
+export const HttpCodeDetails: FC = () => {
     const { code } = useParams();
 
     const { data, loading, error } = useHttpCat(code);
 
-    if (loading) {
-        return (
-            <Loader />
-        );
-    }
-
     return (
-        <>
-            <img src={data} />
-            { children }
-        </>
+        <Container>
+            { loading && (
+                <Loader />
+            ) }
+
+            { !loading && data && (
+                <img src={data} />
+            ) }
+
+            { !loading && error && (
+                <>{error}</>
+            ) }
+        </Container>
     );
 };

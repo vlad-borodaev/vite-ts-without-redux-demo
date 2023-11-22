@@ -1,4 +1,3 @@
-import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import { HttpCodeList } from './pages/HttpCodeList';
 import { HttpCodeDetails } from './pages/HttpCodeDetails';

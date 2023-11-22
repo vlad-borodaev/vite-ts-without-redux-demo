@@ -1,10 +1,10 @@
 import type { FC } from "react";
-import "./Loader.module.css";
+import styles from "./Loader.module.css";
 
 interface LoaderProps {}
 
 export const Loader: FC<LoaderProps> = (props) => {
     return (
-        <div className="loader-dual-ring"></div>
+        <div className={styles.loaderDualRing}></div>
     );
 };

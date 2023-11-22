@@ -1,0 +1,12 @@
+.listContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.noItemsLable {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+}

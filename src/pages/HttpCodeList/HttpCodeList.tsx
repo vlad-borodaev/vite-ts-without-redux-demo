@@ -1,23 +1,25 @@
-import type { FC, PropsWithChildren } from "react";
+import type { FC } from "react";
 import { useHttpCatList } from "../../hooks";
 import { Loader } from "../../components/atoms";
+import { Container } from "../../components/templates";
+import { HttpCodeCardList } from "../../components/organisms";
 
-export const HttpCodeList: FC<PropsWithChildren> = (props) => {
-    const { children } = props;
-
+export const HttpCodeList: FC = () => {
     const { data, loading, error } = useHttpCatList();
 
-    console.log("data", data);
-
-    if (loading) {
-        return (
-            <Loader />
-        );
-    }
-
     return (
-        <>
-            { children }
-        </>
+        <Container>
+            { loading && (
+                <Loader />
+            ) }
+
+            { !loading && data && (
+                <HttpCodeCardList list={data} />
+            ) }
+
+            { !loading && error && (
+                <>{error}</>
+            ) }
+        </Container>
     );
 };

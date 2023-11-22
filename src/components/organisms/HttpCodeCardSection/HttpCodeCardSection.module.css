@@ -1,0 +1,23 @@
+.cardsContainer {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.codeType {
+    font-size: 30px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+.codeList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}

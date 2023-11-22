@@ -1,0 +1,26 @@
+.cardWrapper {
+    width: 280px;
+    height: 180px;
+    margin: 10px;
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.cardWrapper:hover {
+    cursor: pointer;
+}
+
+.cardCode {
+    font-size: 50px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+.cardType {
+    font-size: 16px;
+}
