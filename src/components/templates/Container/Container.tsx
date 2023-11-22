@@ -1,9 +1,14 @@
 import { FC, PropsWithChildren } from "react";
 import styles from "./Container.module.css";
 import clsx from "clsx";
+import { Header } from "../../molecules";
 
-export const Container: FC<PropsWithChildren> = (props) => {
-    const { children } = props;
+interface ContainerProps extends PropsWithChildren {
+    showNavigationBack?: boolean;
+}
+
+export const Container: FC<ContainerProps> = (props) => {
+    const { children, showNavigationBack } = props;
 
     return (
         <section className={clsx(
@@ -11,6 +16,7 @@ export const Container: FC<PropsWithChildren> = (props) => {
             styles.gradientBackground
         )}>
             <div className={styles.contentWrapper}>
+                <Header showNavigationBack={showNavigationBack} />
                 {children}
             </div>
         </section>
